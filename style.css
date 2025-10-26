@@ -11,35 +11,37 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar */
+/* ===== Navbar default ===== */
 nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: #1a1a1a;
-  padding: 15px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #111; /* adjust your color */
 }
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ff9800;
-}
+
 nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
   list-style: none;
-  display: flex;
-  gap: 30px;
 }
 nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
 }
+
+/* Hamburger menu hidden by default */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
 nav ul li a:hover {
   color: #ff9800;
 }
@@ -203,17 +205,119 @@ footer h2 {
 .socials a:hover {
   color: #ff9800;
 }
-.video video {
-  width: 100%;
-  height: 0;
-  padding-bottom: 177.777778%; /* This creates the 9:16 aspect ratio */
-  position: relative;
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+    #home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #home .profile {
+        margin-top: 20px;
+    }
+
+    .videos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .package {
+        width: 45%;
+        margin: 10px auto;
+    }
+
+    #about .content {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    footer .socials {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
 }
 
-.video video source {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+   
+
+    #home h1 {
+        font-size: 1.8rem;
+    }
+
+    #home p {
+        font-size: 0.9rem;
+    }
+
+    .videos {
+        grid-template-columns: 1fr;
+    }
+
+    .package {
+        width: 90%;
+    }
+
+    #about .content {
+        font-size: 0.85rem;
+    }
+
+    footer h2 {
+        font-size: 1.2rem;
+    }
+
+    footer .socials a {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Small Mobile ===== */
+@media (max-width: 480px) {
+
+    #home h1 {
+        font-size: 1.5rem;
+    }
+
+    #home p {
+        font-size: 0.8rem;
+    }
+
+    .videos video {
+        width: 100%;
+    }
+
+    .package {
+        width: 95%;
+    }
+
+    footer .socials a {
+        display: block;
+        margin: 5px 0;
+    }
+}
+/* ===== Mobile & Tablet ===== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 70px; /* below navbar */
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: #111;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        transition: left 0.3s ease;
+        padding-top: 30px;
+    }
+
+    nav ul.active {
+        left: 0;
+    }
 }
