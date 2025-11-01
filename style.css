@@ -122,14 +122,8 @@ section {
   background: #292929;
 }
 
-.video video {
-  width: 100%;                /* full width of container */
-  aspect-ratio: 9 / 16;       /* enforce 9:16 ratio */
-  object-fit: cover;          /* crop properly */
-  border-radius: 6px;
-  background: #000;
-  height: auto;               /* let aspect-ratio control height */
-}
+.video video { width: 55%; height: 350px; /* fixed smaller height */ object-fit: cover; /* crop instead of stretch */ border-radius: 6px; background: #000; }
+
 
 .video p {
   margin-top: 6px;  /* less margin */
@@ -322,3 +316,4 @@ footer h2 {
         left: 0;
     }
 }
+
